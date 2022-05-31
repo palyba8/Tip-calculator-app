@@ -20,9 +20,39 @@ body {
   font-family: var(--primary-font);
   font-size: 24px;
   color: var(--dark-grayish-cyan);
+  position: relative;
 }
+
+.animated-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  animation: scaleCircle 6s linear infinite;
+}
+
+@keyframes scaleCircle {
+  0% {
+    transform: scaleX(1);
+  }
+  25% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(-1);
+  }
+  75% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
 .flex-container {
-  min-height: 100vh;
+  min-height: 95vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -153,7 +183,7 @@ input:invalid,
   border: 2px solid var(--error);
 }
 
-.error-text{
+.error-text {
   position: absolute;
   top: -18px;
   right: 0;
@@ -162,8 +192,6 @@ input:invalid,
   font-size: 16px;
   line-height: 18px;
 }
-
-
 
 .output-section {
   max-width: 100%;
@@ -213,18 +241,28 @@ input:invalid,
 .reset-btn.deactivated:hover,
 .reset-btn.deactivated:active,
 .reset-btn.deactivated {
-  opacity: .2;
+  opacity: 0.2;
   cursor: default;
 }
 
-.reset-btn.deactivated:hover
-
-.reset-btn:hover {
+.reset-btn.deactivated:hover .reset-btn:hover {
   background-color: var(--light-grayish-cyan);
 }
 .reset-btn:active {
   background-color: var(--primary);
 }
+
+.attribution {
+  text-align: center;
+  font-size: 14px;
+  color: var(--dark-grayish-cyan);
+}
+
+.attribution a {
+  text-decoration: none;
+  color: var(--dark-cyan);
+}
+
 @media screen and (min-width: 500px) {
   .grid-container {
     grid-template-columns: 1fr 1fr 1fr;
