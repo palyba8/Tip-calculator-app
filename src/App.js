@@ -44,22 +44,22 @@ function App() {
           }
         });
       }
-      if (element.id === "discount") {
-        document.querySelectorAll(".btn").forEach((element) => {
-          element.classList.contains("active") &&
-            element.classList.remove("active");
-        });
-      }
+      (element.id === "discount") && removeActiveClass()
+      
     } else {
-      document.querySelectorAll(".btn").forEach((element) => {
-        element.classList.contains("active") &&
-          element.classList.remove("active");
-      });
+      removeActiveClass()
       element.classList.add("active");
       setInputData((prevInputData) => {
         return { ...prevInputData, discount: element.value };
       });
     }
+  }
+
+  function removeActiveClass(){
+    document.querySelectorAll(".btn").forEach((element) => {
+      element.classList.contains("active") &&
+        element.classList.remove("active");
+    });
   }
 
   function hideError(element) {
@@ -81,6 +81,7 @@ function App() {
     const resetBtn = document.querySelector(".reset-btn");
     if (!resetBtn.classList.contains("deactivated")) {
       resetBtn.classList.add("deactivated");
+      removeActiveClass()
       document.getElementById("tipAmount").innerText = "$0.00";
       document.getElementById("totalAmount").innerText = "$0.00";
       document.getElementById("bill").value = "";
